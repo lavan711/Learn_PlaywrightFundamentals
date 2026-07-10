@@ -32,3 +32,13 @@ npx playwright test --headed
 - The project uses `@playwright/test`.
 - Test reports are generated in `playwright-report/`.
 - `tsconfig.json` includes Node types required for Playwright config.
+
+## Contributing
+
+Contributions are welcome. To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Install dependencies with `npm install`.
+4. Run tests with `npm test`.
+5. Submit a pull request with a clear description of your changes.
