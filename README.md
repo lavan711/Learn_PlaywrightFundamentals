@@ -1,15 +1,27 @@
 # Learn Playwright Fundamentals
 
-This repository contains a Playwright test project created with `npm init playwright@latest`.
+This repository is a hands-on Playwright learning project covering the basics of browser automation, locators, assertions, test annotations, frames, uploads, downloads, and more.
 
-## Project Contents
+## What is included
 
-- `playwright.config.ts` - Playwright test runner configuration
-- `tests/example.spec.ts` - Sample Playwright tests for the Playwright website
-- `tsconfig.json` - TypeScript configuration for Playwright and Node
-- `package.json` - Project dependencies and test script
+- Playwright configuration in `playwright.config.ts`
+- Example and practice tests under the `tests/` folder
+- TypeScript support via `tsconfig.json`
+- Project dependencies and scripts in `package.json`
+- Generated Playwright reports in `playwright-report/`
+
+## Project structure
+
+- `tests/01_Basics/` - Core Playwright concepts and test annotations
+- `tests/02_first_tests/` - First test examples and basic validations
+- `tests/03_Locators_Commands/` - Locators, XPath, and command usage
+- `tests/04_Session_Storage/` - Session storage related examples
+- `tests/05_Allure_Reporting/` - Reporting examples
+- `tests/06_Multiple_Element/` onward - Advanced UI and automation scenarios
 
 ## Setup
+
+Install dependencies:
 
 ```bash
 npm install
@@ -17,28 +29,31 @@ npm install
 
 ## Run tests
 
+Run all tests:
+
 ```bash
 npm test
 ```
 
-To run tests in headed mode:
+Run tests in headed mode:
 
 ```bash
 npx playwright test --headed
 ```
 
+Generate and open the HTML report:
+
+```bash
+npx playwright show-report
+```
+
 ## Notes
 
 - The project uses `@playwright/test`.
-- Test reports are generated in `playwright-report/`.
-- `tsconfig.json` includes Node types required for Playwright config.
+- Test results are stored in `test-results/`.
+- HTML reports are generated in `playwright-report/`.
+- The repository is intended for learning and practicing Playwright fundamentals.
 
-## Contributing
+## Contribution
 
-Contributions are welcome. To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Install dependencies with `npm install`.
-4. Run tests with `npm test`.
-5. Submit a pull request with a clear description of your changes.
+Feel free to add new examples or improve existing tests. Create a branch, make your changes, and open a pull request with a clear summary.
