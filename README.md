@@ -9,6 +9,7 @@ This repository is a hands-on Playwright learning project covering the basics of
 - TypeScript support via `tsconfig.json`
 - Project dependencies and scripts in `package.json`
 - Generated Playwright reports in `playwright-report/`
+- Generated Allure results and custom test reports are stored in `allure-results/` and `tta-report/` and are excluded from version control.
 
 ## Project structure
 
@@ -52,6 +53,7 @@ npx playwright show-report
 - The project uses `@playwright/test`.
 - Test results are stored in `test-results/`.
 - HTML reports are generated in `playwright-report/`.
+- Additional generated report artifacts are written to `allure-results/` and `tta-report/` and are not committed to Git.
 - The repository is intended for learning and practicing Playwright fundamentals.
 
 ## Contribution
