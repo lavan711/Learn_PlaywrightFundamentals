@@ -21,3 +21,10 @@ user-session.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Custom TTA reporter output
+/tta-report/
+
+# Allure output
+/allure-results/
+/allure-report/
