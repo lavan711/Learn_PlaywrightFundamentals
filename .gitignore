@@ -14,6 +14,9 @@ node_modules/
 # Environment files
 .env
 
+# Local session artifacts
+user-session.json
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
