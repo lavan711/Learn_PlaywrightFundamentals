@@ -1,4 +1,5 @@
 import { test, expect, Locator } from '@playwright/test';
+import { normalize } from 'node:path';
 
 const URL = 'https://www.flipkart.com/search'
 
@@ -9,29 +10,49 @@ test.describe('Flipkart Seach via the SVG', () => {
         await page.goto(URL);
     })
 
-    test('TC#1', async ({ page }) => {
+    test('Search Mac Mini and print cheapest price', async ({ page }) => {
 
         await page.locator('input[name="q"]').fill("macmini");
         const svgElements: Locator = page.locator('svg');
         await svgElements.first().click();
-        const titleResults: Locator = page.locator("a.pIpigb");
+        const titleResults: Locator = page.locator('a.pIpigb');
         const count: number = await titleResults.count();
         for (let i = 0; i < count; i++) {
             const title: string | null = await titleResults.nth(i).textContent();
             console.log(title);
-
         }
-        await page.waitForTimeout(2000);
-        await page.getByText('Price -- Low to High').click();
-        await page.waitForLoadState('networkidle');
 
-        const priceResults = page.locator("div.hZ3P6w");
-        const minPrice = await priceResults.first().innerText();
+        const priceResults = page.locator('div:has-text("₹")');
+        const pcount = await titleResults.count();
 
-        console.log(minPrice);
-        await page.pause();
+        let lowestPrice = Number.MAX_SAFE_INTEGER;
+        let cheapestProduct = '';
+
+        for (let i = 0; i < pcount; i++) {
+            const title = await titleResults.nth(i).textContent();
+
+            const priceText = await priceResults.nth(i).innerText();
+            const match = priceText.match(/₹[\d,]+/);
+
+            if (match) {
+                const price = Number(
+                    match[0].replace('₹', '').replace(/,/g, '')
+                );
+
+                if (!isNaN(price) && price < lowestPrice) {
+                    lowestPrice = price;
+                    cheapestProduct = title?.trim() || '';
+                }
+            }
+        }
+
+        expect(lowestPrice).not.toBe(Number.MAX_SAFE_INTEGER);
+
+        console.log('\n==============================');
+        console.log('Cheapest Mac Mini');
+        console.log(`Title : ${cheapestProduct}`);
+        console.log(`Price : ₹${lowestPrice.toLocaleString('en-IN')}`);
+        console.log('==============================');
 
     });
-
-
 });
