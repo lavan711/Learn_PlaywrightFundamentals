@@ -3,10 +3,11 @@ import { test, expect} from '@playwright/test';
 test.describe('Expected Assertions', ()=>{
 
     test('Verfication', async({page})=> {
-        // page fixtue, we will inject the page direclty into the test
-        // fixture, before running the test
-        // BrowserContext, Browser, Page was created. 
-        // page
+        // page fixture, we will inject the page directly into the test fixture, before running the test
+        //BrowserContext, Browser, Page was created. 
+        //fixture is a pre-defined object which is available in the test. 
+        // what is the use of this page fixture? we can use this page fixture to perform any action on the page.
+        
 
         // BCP Automaitically done - page fixtuer which you can use automatically
 
@@ -25,3 +26,4 @@ test.describe('Expected Assertions', ()=>{
     });
 
 });
+

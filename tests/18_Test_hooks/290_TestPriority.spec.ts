@@ -36,4 +36,4 @@ test('Settings test @p3', async ({ page }) => {
   await page.goto('https://app.vwo.com');
 });
 
-// npx playwright test --grep @p1
+// npx playwright test --grep @p1 - run only the tests with @p1 tag
