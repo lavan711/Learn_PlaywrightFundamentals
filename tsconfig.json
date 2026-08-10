@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
